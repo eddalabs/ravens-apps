@@ -1,0 +1,25 @@
+{
+  "id": "night-transfer",
+  "name": "NIGHT transfer",
+  "version": "0.1.0",
+  "description": "Built-in action: send unshielded NIGHT to an address. No contract involved.",
+  "networks": {
+    "preview": { "contract": null }
+  },
+  "actions": [
+    {
+      "id": "transfer",
+      "description": "Send unshielded NIGHT. The user approves in their own wallet.",
+      "kind": "transfer",
+      "movesFunds": true,
+      "params": {
+        "type": "object",
+        "required": ["recipient", "amount_night"],
+        "properties": {
+          "recipient": { "type": "string", "pattern": "^mn_addr_preview1" },
+          "amount_night": { "type": "string", "pattern": "^\\d+(\\.\\d{1,6})?$" }
+        }
+      }
+    }
+  ]
+}
